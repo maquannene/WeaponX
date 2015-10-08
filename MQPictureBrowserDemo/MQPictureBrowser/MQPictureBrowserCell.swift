@@ -46,7 +46,6 @@ class MQPictureBrowserCell: UICollectionViewCell {
         addGestureRecognizer(tapGesture)
         
         tapGesture.requireGestureRecognizerToFail(doubleTapGesture)
-        
     }
     
     override func prepareForReuse() {
@@ -58,7 +57,7 @@ class MQPictureBrowserCell: UICollectionViewCell {
     }
     
     func dobleTapAction(gesture: UITapGestureRecognizer) {
-    
+
         guard scrollView.maximumZoomScale != 1 else { return }
         guard doubleTapGestureLock == false else { return }
         doubleTapGestureLock = true
@@ -102,8 +101,8 @@ class MQPictureBrowserCell: UICollectionViewCell {
 //  MARK: Private
 extension MQPictureBrowserCell {
     //  当图片等比放大到宽度等于屏幕宽度时，图片在cell中的rect
-    func calculateImageActualRect() -> CGRect {
-        let imageSize = imageView.image!.size
+    func calculateImageActualRect(imageSize size: CGSize = CGSizeZero) -> CGRect {
+        let imageSize = size == CGSizeZero ? imageView.image!.size : size
         //  获取所占区域大小
         let boundingRect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: CGFloat(MAXFLOAT))
         let imageActualSize = AVMakeRectWithAspectRatioInsideRect(CGSize(width: imageSize.width, height:imageSize.height), boundingRect).size
