@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D44235CE1BC55EAB003C651A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44235CD1BC55EAB003C651A /* AppDelegate.swift */; };
+		D44235D01BC55EAB003C651A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44235CF1BC55EAB003C651A /* ViewController.swift */; };
+		D44235D31BC55EAB003C651A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44235D11BC55EAB003C651A /* Main.storyboard */; };
+		D44235D51BC55EAB003C651A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44235D41BC55EAB003C651A /* Assets.xcassets */; };
+		D44235D81BC55EAB003C651A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44235D61BC55EAB003C651A /* LaunchScreen.storyboard */; };
+		D4F9E81D1BC61C29009358D8 /* MQPictureBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F9E81B1BC61C29009358D8 /* MQPictureBrowserCell.swift */; settings = {ASSET_TAGS = (); }; };
+		D4F9E81E1BC61C29009358D8 /* MQPictureBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F9E81C1BC61C29009358D8 /* MQPictureBrowserController.swift */; settings = {ASSET_TAGS = (); }; };
+		D4F9E8291BC64841009358D8 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F9E8271BC64841009358D8 /* 3.png */; settings = {ASSET_TAGS = (); }; };
+		D4F9E82E1BC648CB009358D8 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F9E82D1BC648CB009358D8 /* 4.png */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D44235CA1BC55EAB003C651A /* MQPictureBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MQPictureBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44235CD1BC55EAB003C651A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D44235CF1BC55EAB003C651A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D44235D21BC55EAB003C651A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D44235D41BC55EAB003C651A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D44235D71BC55EAB003C651A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D44235D91BC55EAB003C651A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4F9E81B1BC61C29009358D8 /* MQPictureBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQPictureBrowserCell.swift; sourceTree = "<group>"; };
+		D4F9E81C1BC61C29009358D8 /* MQPictureBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQPictureBrowserController.swift; sourceTree = "<group>"; };
+		D4F9E8271BC64841009358D8 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		D4F9E82D1BC648CB009358D8 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D44235C71BC55EAB003C651A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D44235C11BC55EAB003C651A = {
+			isa = PBXGroup;
+			children = (
+				D44235CC1BC55EAB003C651A /* MQPictureBrowser */,
+				D44235CB1BC55EAB003C651A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D44235CB1BC55EAB003C651A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D44235CA1BC55EAB003C651A /* MQPictureBrowser.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D44235CC1BC55EAB003C651A /* MQPictureBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				D48DE2F71BC61BF80008B193 /* MQPictureBrowser */,
+				D44235CD1BC55EAB003C651A /* AppDelegate.swift */,
+				D44235CF1BC55EAB003C651A /* ViewController.swift */,
+				D4F9E8271BC64841009358D8 /* 3.png */,
+				D4F9E82D1BC648CB009358D8 /* 4.png */,
+				D44235D11BC55EAB003C651A /* Main.storyboard */,
+				D44235D41BC55EAB003C651A /* Assets.xcassets */,
+				D44235D61BC55EAB003C651A /* LaunchScreen.storyboard */,
+				D44235D91BC55EAB003C651A /* Info.plist */,
+			);
+			path = MQPictureBrowser;
+			sourceTree = "<group>";
+		};
+		D48DE2F71BC61BF80008B193 /* MQPictureBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				D4F9E81C1BC61C29009358D8 /* MQPictureBrowserController.swift */,
+				D4F9E81B1BC61C29009358D8 /* MQPictureBrowserCell.swift */,
+			);
+			path = MQPictureBrowser;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D44235C91BC55EAB003C651A /* MQPictureBrowser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44235DC1BC55EAB003C651A /* Build configuration list for PBXNativeTarget "MQPictureBrowser" */;
+			buildPhases = (
+				D44235C61BC55EAB003C651A /* Sources */,
+				D44235C71BC55EAB003C651A /* Frameworks */,
+				D44235C81BC55EAB003C651A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MQPictureBrowser;
+			productName = MQPictureBrowser;
+			productReference = D44235CA1BC55EAB003C651A /* MQPictureBrowser.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D44235C21BC55EAB003C651A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "马权";
+				TargetAttributes = {
+					D44235C91BC55EAB003C651A = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 47A7JUUJ9E;
+					};
+				};
+			};
+			buildConfigurationList = D44235C51BC55EAB003C651A /* Build configuration list for PBXProject "MQPictureBrowser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D44235C11BC55EAB003C651A;
+			productRefGroup = D44235CB1BC55EAB003C651A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D44235C91BC55EAB003C651A /* MQPictureBrowser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D44235C81BC55EAB003C651A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44235D81BC55EAB003C651A /* LaunchScreen.storyboard in Resources */,
+				D44235D51BC55EAB003C651A /* Assets.xcassets in Resources */,
+				D44235D31BC55EAB003C651A /* Main.storyboard in Resources */,
+				D4F9E82E1BC648CB009358D8 /* 4.png in Resources */,
+				D4F9E8291BC64841009358D8 /* 3.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D44235C61BC55EAB003C651A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44235D01BC55EAB003C651A /* ViewController.swift in Sources */,
+				D4F9E81D1BC61C29009358D8 /* MQPictureBrowserCell.swift in Sources */,
+				D4F9E81E1BC61C29009358D8 /* MQPictureBrowserController.swift in Sources */,
+				D44235CE1BC55EAB003C651A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D44235D11BC55EAB003C651A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D44235D21BC55EAB003C651A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D44235D61BC55EAB003C651A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D44235D71BC55EAB003C651A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D44235DA1BC55EAB003C651A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D44235DB1BC55EAB003C651A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D44235DD1BC55EAB003C651A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = MQPictureBrowser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = maquan.MQPictureBrowser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		D44235DE1BC55EAB003C651A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = MQPictureBrowser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = maquan.MQPictureBrowser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D44235C51BC55EAB003C651A /* Build configuration list for PBXProject "MQPictureBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44235DA1BC55EAB003C651A /* Debug */,
+				D44235DB1BC55EAB003C651A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44235DC1BC55EAB003C651A /* Build configuration list for PBXNativeTarget "MQPictureBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44235DD1BC55EAB003C651A /* Debug */,
+				D44235DE1BC55EAB003C651A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D44235C21BC55EAB003C651A /* Project object */;
+}
