@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="374" width="282" height="253"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3.png" translatesAutoresizingMaskIntoConstraints="NO" id="HWk-mt-da9">
-                                        <rect key="frame" x="27" y="31" width="229" height="144"/>
+                                        <rect key="frame" x="27" y="37" width="229" height="138"/>
                                         <animations/>
                                         <gestureRecognizers/>
                                     </imageView>
@@ -45,7 +45,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="4.png" translatesAutoresizingMaskIntoConstraints="NO" id="3ow-DH-uja">
-                                <rect key="frame" x="260" y="161" width="182" height="110"/>
+                                <rect key="frame" x="263" y="71" width="182" height="486"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -64,6 +64,6 @@
     </scenes>
     <resources>
         <image name="3.png" width="2642" height="1578"/>
-        <image name="4.png" width="2642" height="1578"/>
+        <image name="4.png" width="427" height="1136"/>
     </resources>
 </document>

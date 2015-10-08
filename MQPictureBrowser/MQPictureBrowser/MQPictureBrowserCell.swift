@@ -29,7 +29,6 @@ class MQPictureBrowserCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.blackColor()
-        scrollView.backgroundColor = UIColor.blackColor()
         scrollView.alwaysBounceVertical = true
         scrollView.alwaysBounceHorizontal = true
         scrollView.directionalLockEnabled = true
@@ -132,7 +131,6 @@ extension MQPictureBrowserCell {
         else {
             //  计算出自大缩放比
             let maxScale = self.frame.height / imageActualSize.height
-            scrollView.minimumZoomScale = 1
             scrollView.maximumZoomScale = maxScale
             //  设置滚动
             scrollView.frame =  CGRect(origin: CGPointZero, size: imageActualSize)
@@ -141,7 +139,6 @@ extension MQPictureBrowserCell {
         scrollView.contentSize = imageActualSize
         imageView.frame = CGRect(origin: CGPointZero, size: imageActualSize)
         scrollView.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
-        
     }
     
 }

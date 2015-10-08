@@ -42,7 +42,14 @@ class ViewController: UIViewController {
 
 extension ViewController: MQPictureBrowserControllerDataSource {
 
-    func pictureBrowserController(controller: MQPictureBrowserController, willShowPictureForItemAtIndex index: Int) -> UIImageView {
+    func pictureBrowserController(controller: MQPictureBrowserController, willShowPictureFromImageViewAtIndex index: Int) -> UIImageView {
+        if index == 0 {
+            return imageView1
+        }
+        return imageView2
+    }
+    
+    func pictureBrowserController(controller: MQPictureBrowserController, willHidePictureToImageViewAtIndex index: Int) -> UIImageView {
         if index == 0 {
             return imageView1
         }

@@ -15,7 +15,7 @@
 		D4F9E81D1BC61C29009358D8 /* MQPictureBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F9E81B1BC61C29009358D8 /* MQPictureBrowserCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D4F9E81E1BC61C29009358D8 /* MQPictureBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F9E81C1BC61C29009358D8 /* MQPictureBrowserController.swift */; settings = {ASSET_TAGS = (); }; };
 		D4F9E8291BC64841009358D8 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F9E8271BC64841009358D8 /* 3.png */; settings = {ASSET_TAGS = (); }; };
-		D4F9E82E1BC648CB009358D8 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F9E82D1BC648CB009358D8 /* 4.png */; settings = {ASSET_TAGS = (); }; };
+		D4F9E8321BC65EA8009358D8 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F9E8311BC65EA8009358D8 /* 4.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		D4F9E81B1BC61C29009358D8 /* MQPictureBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQPictureBrowserCell.swift; sourceTree = "<group>"; };
 		D4F9E81C1BC61C29009358D8 /* MQPictureBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQPictureBrowserController.swift; sourceTree = "<group>"; };
 		D4F9E8271BC64841009358D8 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		D4F9E82D1BC648CB009358D8 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		D4F9E8311BC65EA8009358D8 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 				D44235CD1BC55EAB003C651A /* AppDelegate.swift */,
 				D44235CF1BC55EAB003C651A /* ViewController.swift */,
 				D4F9E8271BC64841009358D8 /* 3.png */,
-				D4F9E82D1BC648CB009358D8 /* 4.png */,
+				D4F9E8311BC65EA8009358D8 /* 4.png */,
 				D44235D11BC55EAB003C651A /* Main.storyboard */,
 				D44235D41BC55EAB003C651A /* Assets.xcassets */,
 				D44235D61BC55EAB003C651A /* LaunchScreen.storyboard */,
@@ -145,7 +145,7 @@
 				D44235D81BC55EAB003C651A /* LaunchScreen.storyboard in Resources */,
 				D44235D51BC55EAB003C651A /* Assets.xcassets in Resources */,
 				D44235D31BC55EAB003C651A /* Main.storyboard in Resources */,
-				D4F9E82E1BC648CB009358D8 /* 4.png in Resources */,
+				D4F9E8321BC65EA8009358D8 /* 4.png in Resources */,
 				D4F9E8291BC64841009358D8 /* 3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
