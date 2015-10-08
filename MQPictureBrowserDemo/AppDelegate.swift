@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MQPictureBrowser
+//  MQPictureBrowserDemo
 //
 //  Created by 马权 on 10/7/15.
 //  Copyright © 2015 马权. All rights reserved.
