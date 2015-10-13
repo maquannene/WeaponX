@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
     
     func configurePictureBrowserVc() -> MQPictureBrowserController {
-        let vc = MQPictureBrowserController()
+        let vc = MQPictureBrowserController(animationModel: MQPictureBorwserAnimationModel.PictureMoveAndBackgroundFadeOut)
         vc.dataSource = self
         vc.collectionView.registerClass(MQPictureBrowserCell.self, forCellWithReuseIdentifier: "cell")
         return vc
@@ -41,19 +41,19 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: MQPictureBrowserControllerDataSource {
-
-    func pictureBrowserController(controller: MQPictureBrowserController, willShowPictureFromImageViewAtIndex index: Int) -> UIImageView {
+    
+    func pictureBrowserController(controller: MQPictureBrowserController, animationInfoOfShowPictureAtIndex index: Int) -> ShowAnimationInfo? {
         if index == 0 {
-            return imageView1
+            return (imageView1, self.view)
         }
-        return imageView2
+        return (imageView2, self.view)
     }
     
-    func pictureBrowserController(controller: MQPictureBrowserController, willHidePictureToImageViewAtIndex index: Int) -> UIImageView {
+    func pictureBrowserController(controller: MQPictureBrowserController, animationInfoOfHidePictureAtIndex index: Int) -> HideAnimationInfo? {
         if index == 0 {
-            return imageView1
+            return (imageView1, self.view)
         }
-        return imageView2
+        return (imageView2, self.view)
     }
     
     func numberOfItemsInPictureBrowserController(controller: MQPictureBrowserController) -> Int {

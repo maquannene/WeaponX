@@ -21,6 +21,7 @@ class MQPictureBrowserCell: UICollectionViewCell {
     var doubleTapGesture: UITapGestureRecognizer!
     var tapGesture: UITapGestureRecognizer!
     var doubleTapGestureLock: Bool = false
+    var imageSize: CGSize = CGSizeZero
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -48,10 +49,6 @@ class MQPictureBrowserCell: UICollectionViewCell {
         tapGesture.requireGestureRecognizerToFail(doubleTapGesture)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     func tapAction(gesture: UITapGestureRecognizer) {
         delegate?.pictureBrowserCellTap(self)
     }
@@ -62,7 +59,7 @@ class MQPictureBrowserCell: UICollectionViewCell {
         guard doubleTapGestureLock == false else { return }
         doubleTapGestureLock = true
         
-        let imageActualSize = calculateImageActualRect().size
+        let imageActualSize = calculateImageActualRectInCell(imageView.image!.size).size
         
         //  如果当前缩放比是1即正常缩放比
         if scrollView.zoomScale == 1 {
@@ -96,13 +93,17 @@ class MQPictureBrowserCell: UICollectionViewCell {
         }
     }
     
+    deinit {
+        print("\(self.dynamicType) deinit", terminator: "")
+    }
+    
 }
 
 //  MARK: Private
 extension MQPictureBrowserCell {
+    
     //  当图片等比放大到宽度等于屏幕宽度时，图片在cell中的rect
-    func calculateImageActualRect(imageSize size: CGSize = CGSizeZero) -> CGRect {
-        let imageSize = size == CGSizeZero ? imageView.image!.size : size
+    func calculateImageActualRectInCell(imageSize: CGSize) -> CGRect {
         //  获取所占区域大小
         let boundingRect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: CGFloat(MAXFLOAT))
         let imageActualSize = AVMakeRectWithAspectRatioInsideRect(CGSize(width: imageSize.width, height:imageSize.height), boundingRect).size
@@ -113,6 +114,7 @@ extension MQPictureBrowserCell {
             return CGRect(origin: CGPoint(x: 0, y: (self.frame.size.height - imageActualSize.height) / 2), size: imageActualSize)
         }
     }
+    
 }
 
 //  MARK: Public
@@ -120,10 +122,20 @@ extension MQPictureBrowserCell {
     
     func configure(image: UIImage) {
         imageView.image = image
-        let imageActualSize = calculateImageActualRect().size
+        self.imageSize = image.size
+        defaultConfigure()
+    }
+    
+//    func configure(imageUrl: String, imageSize: CGSize) {
+//        imageView.sd_setImageWithURL(NSURL(string: imageUrl)!)
+//        self.imageSize = imageSize
+//        defaultConfigure()
+//    }
+    
+    func defaultConfigure() {
+        let imageActualSize = calculateImageActualRectInCell(self.imageSize).size
         //  如果高度超过了屏幕的高度
         if (imageActualSize.height > self.frame.height) {
-            
             scrollView.maximumZoomScale = 1
             scrollView.frame = self.bounds
         }
@@ -135,6 +147,7 @@ extension MQPictureBrowserCell {
             scrollView.frame =  CGRect(origin: CGPointZero, size: imageActualSize)
         }
         scrollView.minimumZoomScale = 1
+        scrollView.setZoomScale(1, animated: false)
         scrollView.contentSize = imageActualSize
         imageView.frame = CGRect(origin: CGPointZero, size: imageActualSize)
         scrollView.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
