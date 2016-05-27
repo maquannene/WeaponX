@@ -21,9 +21,10 @@ class ViewController: UIViewController {
     }
     
     func configurePhotoBrowserVc() -> PhotoBrowserController {
-        let vc = PhotoBrowserController(animationModel: PictureBorwserAnimationModel.MoveAndBackgroundFadeOut)
+        let vc = PhotoBrowserController(animationModel: PhotoBorwserAnimationModel.MoveAndBackgroundFadeOut)
         vc.dataSource = self
-        vc.collectionView.registerClass(PhotoBrowserCell.self, forCellWithReuseIdentifier: "cell")
+        vc.delegate = self
+        vc.browserView.registerClass(PhotoCell.self, forCellWithReuseIdentifier: "cell")
         return vc
     }
  
@@ -35,35 +36,47 @@ class ViewController: UIViewController {
     
     @IBAction func showImage2(sender: AnyObject) {
         let vc = configurePhotoBrowserVc()
-        vc.presentFromViewController(self, atIndexPicture: 1)
+        vc.presentFromViewController(self, atIndexPhoto: 1)
         photoBrowserVc = vc
+    }
+}
+
+extension ViewController: PhotoBrowserControllerDelegate {
+    func photoBrowserController(controller: PhotoBrowserController, willDisplayCell photoCell: PhotoCell, forItemAtIndex index: Int) {
+    
+    }
+    func photoBrowserController(controller: PhotoBrowserController, didEndDisplayingCell photoCell: PhotoCell, forItemAtIndex index: Int) {
+    
+    }
+    func photoBrowserController(controller: PhotoBrowserController, tapCell photoCell: PhotoCell, forItemAtIndex index: Int) {
+        controller.dismiss()
     }
 }
 
 extension ViewController: PhotoBrowserControllerDataSource {
     
-    func photoBrowserController(controller: PhotoBrowserController, animationInfoOfShowPictureAtIndex index: Int) -> ShowAnimationInfo? {
-        if index == 0 {
-            return (imageView1, self.view)
-        }
+    func photoBrowserController(controller: PhotoBrowserController, animationInfoOfShowPhotoAtIndex index: Int) -> ShowAnimationInfo? {
+//        if index == 0 {
+//            return (imageView1, self.view)
+//        }
         return (imageView2, self.view)
     }
     
-    func photoBrowserController(controller: PhotoBrowserController, animationInfoOfHidePictureAtIndex index: Int) -> HideAnimationInfo? {
-        if index == 0 {
-            return (imageView1, self.view)
-        }
+    func photoBrowserController(controller: PhotoBrowserController, animationInfoOfHidePhotoAtIndex index: Int) -> HideAnimationInfo? {
+//        if index == 0 {
+//            return (imageView1, self.view)
+//        }
         return (imageView2, self.view)
     }
     
     func numberOfItemsInPhotoBrowserController(controller: PhotoBrowserController) -> Int {
-        return 2
+        return 6
     }
     
-    func photoBrowserController(controller: PhotoBrowserController, pictureCellForItemAtIndex index: Int) -> PhotoBrowserCell {
-        let picturebrowserCell = controller.collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: NSIndexPath(forItem: index, inSection: 0)) as! PhotoBrowserCell
-        picturebrowserCell.configure(UIImage(named: "\(index + 3).png")!)
-        return picturebrowserCell
+    func photoBrowserController(controller: PhotoBrowserController, photoCellForItemAtIndex index: Int) -> PhotoCell {
+        let photobrowserCell = controller.browserView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: NSIndexPath(forItem: index, inSection: 0)) as! PhotoCell
+        photobrowserCell.configure(UIImage(named: "\(3).png")!)
+        return photobrowserCell
     }
     
 }
