@@ -21,10 +21,10 @@ class ViewController: UIViewController {
     }
     
     func configurePhotoBrowserVc() -> PhotoBrowserController {
-        let vc = PhotoBrowserController(animationModel: PhotoBorwserAnimationModel.MoveAndBackgroundFadeOut)
+        let vc = PhotoBrowserController()
         vc.dataSource = self
         vc.delegate = self
-        vc.browserView.registerClass(PhotoCell.self, forCellWithReuseIdentifier: "cell")
+        vc.registerClass(PhotoCell.self, forCellWithReuseIdentifier: "cell")
         return vc
     }
  
@@ -56,16 +56,16 @@ extension ViewController: PhotoBrowserControllerDelegate {
 extension ViewController: PhotoBrowserControllerDataSource {
     
     func photoBrowserController(controller: PhotoBrowserController, animationInfoOfShowPhotoAtIndex index: Int) -> ShowAnimationInfo? {
-//        if index == 0 {
-//            return (imageView1, self.view)
-//        }
+        if index == 0 {
+            return (imageView1, self.view)
+        }
         return (imageView2, self.view)
     }
     
     func photoBrowserController(controller: PhotoBrowserController, animationInfoOfHidePhotoAtIndex index: Int) -> HideAnimationInfo? {
-//        if index == 0 {
-//            return (imageView1, self.view)
-//        }
+        if index == 0 {
+            return (imageView1, self.view)
+        }
         return (imageView2, self.view)
     }
     
@@ -74,8 +74,8 @@ extension ViewController: PhotoBrowserControllerDataSource {
     }
     
     func photoBrowserController(controller: PhotoBrowserController, photoCellForItemAtIndex index: Int) -> PhotoCell {
-        let photobrowserCell = controller.browserView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: NSIndexPath(forItem: index, inSection: 0)) as! PhotoCell
-        photobrowserCell.configure(UIImage(named: "\(3).png")!)
+        let photobrowserCell = controller.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: NSIndexPath(forItem: index, inSection: 0))
+        photobrowserCell.configure(UIImage(named: "\(index + 3).png")!)
         return photobrowserCell
     }
     

@@ -13,6 +13,11 @@ protocol PhotoCellDelegate: class {
     func photoCellTap(photoCell: PhotoCell)
 }
 
+enum PhotoCellType {
+    case WidthStyle
+    case HeightStyle
+}
+
 public class PhotoCell: UICollectionViewCell {
     
     internal weak var delegate: PhotoCellDelegate?
@@ -21,6 +26,7 @@ public class PhotoCell: UICollectionViewCell {
     private var imageView = UIImageView()
     private var doubleTapGesture: UITapGestureRecognizer
     private var tapGesture: UITapGestureRecognizer
+    private var type: PhotoCellType = .WidthStyle
     
     public required init?(coder aDecoder: NSCoder) {
         tapGesture = UITapGestureRecognizer()
@@ -37,14 +43,13 @@ public class PhotoCell: UICollectionViewCell {
     }
     
     public func baseConfigure() {
+        scrollView.frame = bounds
         scrollView.alwaysBounceVertical = false
         scrollView.alwaysBounceHorizontal = false
         scrollView.directionalLockEnabled = true
         scrollView.showsVerticalScrollIndicator = true
         scrollView.showsHorizontalScrollIndicator = true
         scrollView.clipsToBounds = false
-
-        scrollView.backgroundColor = UIColor.redColor()
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1
         addSubview(scrollView)
@@ -53,11 +58,9 @@ public class PhotoCell: UICollectionViewCell {
         doubleTapGesture.numberOfTapsRequired = 2
         doubleTapGesture.addTarget(self, action: #selector(PhotoCell.dobleTapAction(_:)))
         addGestureRecognizer(doubleTapGesture)
-        
         tapGesture.numberOfTapsRequired = 1
         tapGesture.addTarget(self, action: #selector(PhotoCell.tapAction(_:)))
         addGestureRecognizer(tapGesture)
-        
         tapGesture.requireGestureRecognizerToFail(doubleTapGesture)
     }
     
@@ -74,7 +77,7 @@ public class PhotoCell: UICollectionViewCell {
         guard scrollView.maximumZoomScale != 1 else { return }
         
         guard imageView.image != nil else { return }
-    
+        
         let cellSize = self.frame.size
         let maxScale = scrollView.maximumZoomScale   //  沾满全屏的缩放比
         
@@ -97,24 +100,6 @@ public class PhotoCell: UICollectionViewCell {
     }
 }
 
-//  MARK: Private
-extension PhotoCell {
-    
-    //  当图片等比放大到宽度等于屏幕宽度时，图片在cell中的rect
-    func calculateImageActualRectInCell(imageSize: CGSize) -> CGRect {
-        //  获取所占区域大小
-        let boundingRect = CGRect(x: 0, y: 0, width: frame.size.width, height: CGFloat(MAXFLOAT))
-        let imageActualSize = AVMakeRectWithAspectRatioInsideRect(CGSize(width: imageSize.width, height:imageSize.height), boundingRect).size
-        if self.frame.height < imageActualSize.height {
-            return CGRect(origin: CGPoint(x: 0, y: 0), size: imageActualSize)
-        }
-        else {
-            return CGRect(origin: CGPoint(x: 0, y: (frame.size.height - imageActualSize.height) / 2), size: imageActualSize)
-        }
-    }
-    
-}
-
 //  MARK: Public
 public extension PhotoCell {
     
@@ -123,29 +108,50 @@ public extension PhotoCell {
         self.imageSize = image.size
         defaultConfigure()
     }
-    
-    public func configure(imageUrl: String, imageSize: CGSize) {
-        self.imageSize = imageSize
-        defaultConfigure()
-    }
-    
+
     public func defaultConfigure() {
         let imageActualSize = calculateImageActualRectInCell(self.imageSize).size
         imageView.frame = CGRect(origin: CGPointZero, size: imageActualSize)
-        scrollView.frame = bounds
         scrollView.contentSize = imageActualSize
-        //  如果高度超过了屏幕的高度
-        if (imageActualSize.height > frame.height) {
-            scrollView.maximumZoomScale = 1
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        }
-        else {
+        //  宽图
+        if imageSize.width / imageSize.height > scrollView.frame.size.width / scrollView.frame.size.height {
             //  计算出自大缩放比
             scrollView.maximumZoomScale = frame.height / imageActualSize.height
             scrollView.contentInset = UIEdgeInsets(top: (scrollView.frame.size.height - imageActualSize.height) / 2,
                                                    left: 0,
                                                    bottom: (scrollView.frame.size.height - imageActualSize.height) / 2,
                                                    right: 0)
+            type = .WidthStyle
+        }
+        else {
+            //  计算出自大缩放比
+            scrollView.maximumZoomScale = frame.width / imageActualSize.width
+            scrollView.contentInset = UIEdgeInsets(top: 0,
+                                                   left: (scrollView.frame.size.width - imageActualSize.width) / 2,
+                                                   bottom: 0,
+                                                   right: (scrollView.frame.size.width - imageActualSize.width) / 2)
+            type = .HeightStyle
+        }
+    }
+}
+
+//  MARK: Private
+extension PhotoCell {
+    
+    //  当图片等比放大到宽度等于屏幕宽度时，图片在cell中的rect
+    func calculateImageActualRectInCell(imageSize: CGSize) -> CGRect {
+        //  宽图
+        if imageSize.width / imageSize.height > self.frame.size.width / self.frame.size.height {
+            //  获取所占区域大小
+            let boundingRect = CGRect(x: 0, y: 0, width: frame.size.width, height: CGFloat(MAXFLOAT))
+            let imageActualSize = AVMakeRectWithAspectRatioInsideRect(CGSize(width: imageSize.width, height:imageSize.height), boundingRect).size
+            return CGRect(origin: CGPoint(x: 0, y: (frame.size.height - imageActualSize.height) / 2), size: imageActualSize)
+        }
+        else {
+            //  获取所占区域大小
+            let boundingRect = CGRect(x: 0, y: 0, width: CGFloat(MAXFLOAT), height: frame.size.height)
+            let imageActualSize = AVMakeRectWithAspectRatioInsideRect(CGSize(width: imageSize.width, height:imageSize.height), boundingRect).size
+            return CGRect(origin: CGPoint(x: (frame.size.width - imageActualSize.width) / 2, y: 0), size: imageActualSize)
         }
     }
 }
@@ -159,6 +165,17 @@ extension PhotoCell: UIScrollViewDelegate {
     public func scrollViewDidZoom(scrollView: UIScrollView) {
         //  缩放的时候要调整contentInset 很关键
         //  超长图片因为maximumZoomScale = 1所以进不了这个方法。
-        scrollView.contentInset = UIEdgeInsets(top: (self.scrollView.frame.size.height - imageView.frame.height) / 2, left: 0, bottom: (self.scrollView.frame.size.height - imageView.frame.height) / 2, right: 0)
+        if case .WidthStyle = type {
+            scrollView.contentInset = UIEdgeInsets(top: (scrollView.frame.size.height - imageView.frame.height) / 2,
+                                                   left: 0,
+                                                   bottom: (scrollView.frame.size.height - imageView.frame.height) / 2,
+                                                   right: 0)
+        }
+        else {
+            scrollView.contentInset = UIEdgeInsets(top: 0,
+                                                   left: (scrollView.frame.size.width - imageView.frame.width) / 2,
+                                                   bottom: 0,
+                                                   right: (scrollView.frame.size.width - imageView.frame.width) / 2)
+        }
     }
 }
