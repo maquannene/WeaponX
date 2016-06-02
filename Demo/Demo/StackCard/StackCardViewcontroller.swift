@@ -1,5 +1,5 @@
 //
-//  W1Viewcontroller.swift
+//  StackCardViewcontroller.swift
 //  Demo
 //
 //  Created by 马权 on 6/2/16.
@@ -8,22 +8,26 @@
 
 import UIKit
 
-class W1Viewcontroller: UIViewController {
+class StackCardViewcontroller: UIViewController {
 
     let collectionView: UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: StackCardLayout())
-    let photos: [UIImage] = Photos.allPhotos()
+    let photos: [UIImage] = Helper.allPhotos()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.frame = self.view.bounds
+        collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.dataSource = self
         collectionView.registerClass(CardView.self, forCellWithReuseIdentifier: "cell")
-        self.view.addSubview(collectionView)
+        view.addSubview(collectionView)
+        view.sendSubviewToBack(collectionView)
         
         if let layout = collectionView.collectionViewLayout as? StackCardLayout {
             layout.cardSize = CGSize(width: self.view.frame.width, height: 300)
-            layout.topGap = 50
-            layout.bottomGap = 50
+            layout.topStackSpace = 50
+            layout.bottomStackSpace = 50
+            layout.stackCount = 3
         }
     }
     
@@ -32,7 +36,7 @@ class W1Viewcontroller: UIViewController {
     }
 }
 
-extension W1Viewcontroller: UICollectionViewDataSource {
+extension StackCardViewcontroller: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }

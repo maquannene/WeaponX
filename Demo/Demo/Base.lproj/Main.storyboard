@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="-76" y="187"/>
         </scene>
-        <!--Viewcontroller-->
+        <!--Stack Card Viewcontroller-->
         <scene sceneID="hbB-OZ-j0f">
             <objects>
-                <viewController id="aIf-kK-p8Z" customClass="W1Viewcontroller" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aIf-kK-p8Z" customClass="StackCardViewcontroller" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yal-kD-rxm"/>
                         <viewControllerLayoutGuide type="bottom" id="t8h-b1-KVu"/>
@@ -74,7 +74,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="backAction:" destination="aIf-kK-p8Z" eventType="touchUpInside" id="56b-Pb-rFG"/>
+                                    <action selector="backAction:" destination="aIf-kK-p8Z" eventType="touchUpInside" id="4no-9o-V6z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2i5-O7-fK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="286" y="187"/>
+            <point key="canvasLocation" x="353" y="180"/>
         </scene>
     </scenes>
 </document>

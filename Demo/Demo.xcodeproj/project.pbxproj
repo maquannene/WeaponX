@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D41FEF041CFFDDA3002DC77D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF031CFFDDA3002DC77D /* Photos.swift */; };
+		D41FEF041CFFDDA3002DC77D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF031CFFDDA3002DC77D /* Helper.swift */; };
 		D41FEF071CFFDED2002DC77D /* StackCardViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF061CFFDED2002DC77D /* StackCardViewcontroller.swift */; };
 		D41FEF091CFFDEF8002DC77D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF081CFFDEF8002DC77D /* CardView.swift */; };
 		D41FEF0C1CFFDF0D002DC77D /* StackCardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF0B1CFFDF0D002DC77D /* StackCardLayout.swift */; };
@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D41FEF031CFFDDA3002DC77D /* Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		D41FEF031CFFDDA3002DC77D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		D41FEF061CFFDED2002DC77D /* StackCardViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCardViewcontroller.swift; sourceTree = "<group>"; };
 		D41FEF081CFFDEF8002DC77D /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D41FEF0B1CFFDF0D002DC77D /* StackCardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCardLayout.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 			children = (
 				D4F537331CF7E758004299F9 /* AppDelegate.swift */,
 				D4F537351CF7E758004299F9 /* ViewController.swift */,
-				D41FEF031CFFDDA3002DC77D /* Photos.swift */,
+				D41FEF031CFFDDA3002DC77D /* Helper.swift */,
 				D41FEF051CFFDED2002DC77D /* StackCard */,
 				D4F537371CF7E758004299F9 /* Main.storyboard */,
 				D4A301821CFFD24700537138 /* Tutorials.xcassets */,
@@ -179,7 +179,7 @@
 				D4F537361CF7E758004299F9 /* ViewController.swift in Sources */,
 				D4F537341CF7E758004299F9 /* AppDelegate.swift in Sources */,
 				D41FEF0C1CFFDF0D002DC77D /* StackCardLayout.swift in Sources */,
-				D41FEF041CFFDDA3002DC77D /* Photos.swift in Sources */,
+				D41FEF041CFFDDA3002DC77D /* Helper.swift in Sources */,
 				D41FEF071CFFDED2002DC77D /* StackCardViewcontroller.swift in Sources */,
 				D41FEF091CFFDEF8002DC77D /* CardView.swift in Sources */,
 			);

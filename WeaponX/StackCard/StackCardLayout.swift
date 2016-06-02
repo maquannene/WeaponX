@@ -1,52 +1,40 @@
 //
-//  StickyHeadersLayout.swift
-//  Camera Roll
+//  StackCardLayout.swift
+//  Demo
 //
-//  Created by Mic Pringle on 18/03/2015.
-//  Copyright (c) 2015 Razeware LLC. All rights reserved.
+//  Created by 马权 on 6/2/16.
+//  Copyright © 2016 马权. All rights reserved.
 //
 
 import UIKit
 
 public class StackCardLayout: UICollectionViewLayout {
     
-    public var topGap: CGFloat = 0
+    public var topStackSpace: CGFloat = 0
     
-    public var bottomGap: CGFloat = 0
+    public var bottomStackSpace: CGFloat = 0
     
     public var cardSize: CGSize = CGSizeZero
     
-    private var cache = [UICollectionViewLayoutAttributes]()
+    public var stackCount: Int = 3
     
-    private var stackCount: Int = 3
-    
-    var contentWidth: CGFloat {
+    private var contentWidth: CGFloat {
         get {
             return CGRectGetWidth(collectionView!.bounds)
         }
     }
     
-    var contentHeight: CGFloat {
+    private var contentHeight: CGFloat {
         get {
             let maxStackCount: Int = numberOfItems > stackCount ? stackCount : numberOfItems - 1
-            return CGFloat(numberOfItems) * cardSize.height - CGFloat(numberOfItems - 1) * bottomGap + (collectionView!.bounds.size.height - cardSize.height - topGap * CGFloat(maxStackCount))
-        }
-    }
-
-    var numberOfItems: Int {
-        get {
-            return collectionView!.numberOfItemsInSection(0)
+            return CGFloat(numberOfItems) * cardSize.height - CGFloat(numberOfItems - 1) * bottomStackSpace +
+                (collectionView!.bounds.size.height - cardSize.height - topStackSpace * CGFloat(maxStackCount))
         }
     }
     
-    public override func prepareLayout() {
-        cache.removeAll()
-        for item in 0 ..< numberOfItems {
-            let indexPath = NSIndexPath(forItem: item, inSection: 0)
-            let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-            attributes.zIndex = item
-            attributes.frame = CGRect(origin: CGPoint(x: 0, y: CGFloat(item) * (cardSize.height - bottomGap)), size: cardSize)
-            cache.append(attributes)
+    private var numberOfItems: Int {
+        get {
+            return collectionView!.numberOfItemsInSection(0)
         }
     }
     
@@ -56,60 +44,68 @@ public class StackCardLayout: UICollectionViewLayout {
     
     public override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let offSetY = collectionView!.contentOffset.y
-        guard offSetY >= 0 else { return cache }
-        let newRect = CGRect(x: rect.origin.x,
-                             y: rect.origin.y - ((cardSize.height - bottomGap) * CGFloat(stackCount) - topGap * CGFloat(stackCount)),
-                             width: rect.size.width,
-                             height: rect.size.height + (cardSize.height - bottomGap) * CGFloat(stackCount) - topGap * CGFloat(stackCount))
+        
+        let minY: CGFloat = CGRectGetMinY(rect)
+        let maxY: CGFloat = CGRectGetMaxY(rect)
+        
+        var minIndex: Int = Int((minY - (cardSize.height - bottomStackSpace) * CGFloat(stackCount) - topStackSpace * CGFloat(stackCount)) / (cardSize.height - bottomStackSpace))
+        minIndex = minIndex < 0 ? 0 : minIndex
+        
+        var maxIndex: Int = Int(maxY / (cardSize.height - bottomStackSpace)) + 1
+        maxIndex = maxIndex > numberOfItems - 1 ? numberOfItems - 1 : maxIndex
         
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
-        for attributes in cache {
-            if CGRectIntersectsRect(attributes.frame, newRect) {
-                layoutAttributes.append(attributes)
-            }
-        }
         
-        layoutAttributes.forEach { attribute in
+        for i in minIndex ... maxIndex {
+            
             var y: CGFloat = 0
-            let index = CGFloat(attribute.indexPath.row)
-            let height: CGFloat = attribute.frame.size.height - bottomGap
-            let stackCount: CGFloat = CGFloat(self.stackCount)
             
-            if offSetY <= index * height - 3 * topGap && index >= 3 {
-                y = index * height
-            }
-            else if offSetY <= index * height - 2 * topGap && index == 2 {
-                y = height * index
-            }
-            else if offSetY <= index * height - topGap && index == 1 {
-                y = height * index
-            }
-            else if offSetY <= (index + 1) * height - (stackCount + 1) * topGap && index >= 3 {
-                y = offSetY + stackCount * topGap
-            }
-            else if offSetY <= (index + 1) * height - stackCount * topGap && index >= 3 {
-                y = (index + 1) * height -  topGap
-            }
-            else if offSetY <= (index + 2) * height - (stackCount + 1) * topGap && index >= 2 {
-                y = offSetY + (stackCount - 1) * topGap
-            }
-            else if offSetY <= (index + 2) * height - stackCount * topGap && index >= 2 {
-                y = (index + 2) * height - 2 * topGap
-            }
-            else if offSetY <= (index + 3) * height - (stackCount + 1) * topGap && index >= 1 {
-                y = offSetY + (stackCount - 2) * topGap
-            }
-            else if offSetY <= (index + 3) * height - stackCount * topGap && index >= 1 {
-                y = (index + 3) * height - 3 * topGap
-            }
-            else if offSetY <= (index + 4) * height - stackCount * topGap && index >= 0 {
-                y = offSetY + (stackCount - 3) * topGap
-            }
+            let attribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: NSIndexPath(forRow: i, inSection: 0))
             
-            var frame = attribute.frame
-            frame.origin = CGPoint(x: frame.origin.x, y: y)
-            attribute.frame = frame
             attribute.zIndex = attribute.indexPath.row
+            
+            let index = CGFloat(i)
+            
+            if offSetY < 0 {
+                y = index * (cardSize.height - bottomStackSpace)
+            }
+            else {
+                let height: CGFloat = cardSize.height - bottomStackSpace
+                
+                let stackCount: CGFloat = CGFloat(self.stackCount)
+                
+                let max: CGFloat = index > stackCount ? stackCount : index
+                
+                if offSetY <= index * height - max * topStackSpace {
+                    y = height * index
+                }
+                else {
+                    var finish = false
+                    var dascend = stackCount
+                    while dascend >= 0 {
+                        let ascend = stackCount + 1 - dascend
+                        if offSetY <= (index + ascend) * height - (stackCount + 1) * topStackSpace && index >= dascend {
+                            y = offSetY + (stackCount - (ascend - 1)) * topStackSpace
+                            finish = true
+                            break
+                        }
+                        else if offSetY <= (index + ascend) * height - stackCount * topStackSpace && index >= dascend {
+                            y = (index + ascend) * height - ascend * topStackSpace
+                            finish = true
+                            break
+                        }
+                        dascend -= 1
+                    }
+                    if !finish {
+                        if offSetY <= (index + stackCount + 1) * height - stackCount * topStackSpace && index >= 0 {
+                            y = offSetY + (stackCount - stackCount) * topStackSpace
+                        }
+                    }
+                }
+            }
+            
+            attribute.frame = CGRect(origin: CGPoint(x: 0, y: y), size: cardSize)
+            layoutAttributes.append(attribute)
         }
         return layoutAttributes
     }
@@ -117,5 +113,4 @@ public class StackCardLayout: UICollectionViewLayout {
     public override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
         return true
     }
-    
 }
