@@ -11,7 +11,8 @@
 		D41FEF071CFFDED2002DC77D /* StackCardViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF061CFFDED2002DC77D /* StackCardViewcontroller.swift */; };
 		D41FEF091CFFDEF8002DC77D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF081CFFDEF8002DC77D /* CardView.swift */; };
 		D41FEF0C1CFFDF0D002DC77D /* StackCardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF0B1CFFDF0D002DC77D /* StackCardLayout.swift */; };
-		D4A301831CFFD24700537138 /* Tutorials.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A301821CFFD24700537138 /* Tutorials.xcassets */; };
+		D41FEF351D01A9B3002DC77D /* Inspirations.plist in Resources */ = {isa = PBXBuildFile; fileRef = D41FEF331D01A9B3002DC77D /* Inspirations.plist */; };
+		D41FEF361D01A9B3002DC77D /* Inspirations.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41FEF341D01A9B3002DC77D /* Inspirations.xcassets */; };
 		D4F537341CF7E758004299F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F537331CF7E758004299F9 /* AppDelegate.swift */; };
 		D4F537361CF7E758004299F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F537351CF7E758004299F9 /* ViewController.swift */; };
 		D4F537391CF7E758004299F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F537371CF7E758004299F9 /* Main.storyboard */; };
@@ -24,7 +25,8 @@
 		D41FEF061CFFDED2002DC77D /* StackCardViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCardViewcontroller.swift; sourceTree = "<group>"; };
 		D41FEF081CFFDEF8002DC77D /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D41FEF0B1CFFDF0D002DC77D /* StackCardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCardLayout.swift; sourceTree = "<group>"; };
-		D4A301821CFFD24700537138 /* Tutorials.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tutorials.xcassets; sourceTree = "<group>"; };
+		D41FEF331D01A9B3002DC77D /* Inspirations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Inspirations.plist; sourceTree = "<group>"; };
+		D41FEF341D01A9B3002DC77D /* Inspirations.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Inspirations.xcassets; sourceTree = "<group>"; };
 		D4F537301CF7E758004299F9 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F537331CF7E758004299F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4F537351CF7E758004299F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +89,8 @@
 				D41FEF031CFFDDA3002DC77D /* Helper.swift */,
 				D41FEF051CFFDED2002DC77D /* StackCard */,
 				D4F537371CF7E758004299F9 /* Main.storyboard */,
-				D4A301821CFFD24700537138 /* Tutorials.xcassets */,
+				D41FEF331D01A9B3002DC77D /* Inspirations.plist */,
+				D41FEF341D01A9B3002DC77D /* Inspirations.xcassets */,
 				D4F5373A1CF7E758004299F9 /* Assets.xcassets */,
 				D4F5373C1CF7E758004299F9 /* LaunchScreen.storyboard */,
 				D4F5373F1CF7E758004299F9 /* Info.plist */,
@@ -163,9 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4F5373E1CF7E758004299F9 /* LaunchScreen.storyboard in Resources */,
-				D4A301831CFFD24700537138 /* Tutorials.xcassets in Resources */,
 				D4F5373B1CF7E758004299F9 /* Assets.xcassets in Resources */,
 				D4F537391CF7E758004299F9 /* Main.storyboard in Resources */,
+				D41FEF361D01A9B3002DC77D /* Inspirations.xcassets in Resources */,
+				D41FEF351D01A9B3002DC77D /* Inspirations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +248,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -284,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

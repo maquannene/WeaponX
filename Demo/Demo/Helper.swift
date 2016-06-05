@@ -14,13 +14,25 @@ class Helper {
         
         var photos = [UIImage]()
         for i in 1...10 {
-            let photoName = String(format: "Tutorial-%02d", i)
+            let photoName = String(format: "Inspiration-%02d", i)
             if let photo = UIImage(named: photoName)
             {
                 photos.append(photo)
             }
         }
         return photos
+    }
+    
+    class func allTitle() -> [String] {
+        var titles = [String]()
+        if let URL = NSBundle.mainBundle().URLForResource("Inspirations", withExtension: "plist") {
+            if let tutorialsFromPlist = NSArray(contentsOfURL: URL) {
+                for dictionary in tutorialsFromPlist {
+                    titles.append(dictionary["Title"] as! String)
+                }
+            }
+        }
+        return titles
     }
     
     class func allLayout() -> [AnyClass] {

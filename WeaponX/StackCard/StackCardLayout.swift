@@ -18,6 +18,8 @@ public class StackCardLayout: UICollectionViewLayout {
     
     public var stackCount: Int = 3
     
+    public var needStackAll: Bool = false
+    
     private var contentWidth: CGFloat {
         get {
             return CGRectGetWidth(collectionView!.bounds)
@@ -26,9 +28,15 @@ public class StackCardLayout: UICollectionViewLayout {
     
     private var contentHeight: CGFloat {
         get {
-            let maxStackCount: Int = numberOfItems > stackCount ? stackCount : numberOfItems - 1
-            return CGFloat(numberOfItems) * cardSize.height - CGFloat(numberOfItems - 1) * bottomStackSpace +
-                (collectionView!.bounds.size.height - cardSize.height - topStackSpace * CGFloat(maxStackCount))
+            let height = CGFloat(numberOfItems) * cardSize.height - CGFloat(numberOfItems - 1) * bottomStackSpace
+            if needStackAll {
+                let maxStackCount: Int = numberOfItems > stackCount ? stackCount : numberOfItems - 1
+                return height +
+                    (collectionView!.bounds.size.height - cardSize.height - topStackSpace * CGFloat(maxStackCount))
+            }
+            else {
+                return height
+            }
         }
     }
     
@@ -105,6 +113,12 @@ public class StackCardLayout: UICollectionViewLayout {
             }
             
             attribute.frame = CGRect(origin: CGPoint(x: 0, y: y), size: cardSize)
+            
+            if let lastAttribute = layoutAttributes.last {
+                var rect = lastAttribute.frame
+                rect.size.height = attribute.frame.minY - lastAttribute.frame.minY
+                lastAttribute.frame = rect
+            }
             layoutAttributes.append(attribute)
         }
         return layoutAttributes

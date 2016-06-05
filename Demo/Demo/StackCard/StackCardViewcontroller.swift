@@ -12,6 +12,7 @@ class StackCardViewcontroller: UIViewController {
 
     let collectionView: UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: StackCardLayout())
     let photos: [UIImage] = Helper.allPhotos()
+    let titles: [String] = Helper.allTitle()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +25,10 @@ class StackCardViewcontroller: UIViewController {
         view.sendSubviewToBack(collectionView)
         
         if let layout = collectionView.collectionViewLayout as? StackCardLayout {
-            layout.cardSize = CGSize(width: self.view.frame.width, height: 300)
+            layout.cardSize = CGSize(width: self.view.frame.width, height: 250)
             layout.topStackSpace = 50
             layout.bottomStackSpace = 50
-            layout.stackCount = 3
+            layout.stackCount = 5
         }
     }
     
@@ -42,9 +43,9 @@ extension StackCardViewcontroller: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let photo = photos[indexPath.item]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CardView
-        cell.photo = photo
+        cell.photo = photos[indexPath.item]
+        cell.text = titles[indexPath.item]
         return cell
     }
 }
