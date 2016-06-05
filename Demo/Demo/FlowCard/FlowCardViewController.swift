@@ -1,16 +1,16 @@
 //
-//  StackCardViewcontroller.swift
+//  FlowCardViewController.swift
 //  Demo
 //
-//  Created by 马权 on 6/2/16.
+//  Created by 马权 on 6/5/16.
 //  Copyright © 2016 马权. All rights reserved.
 //
 
 import UIKit
 
-class StackCardViewcontroller: UIViewController {
-
-    let collectionView: UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: StackCardLayout())
+class FlowCardViewController: UIViewController {
+    
+    let collectionView: UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: FlowCardLayout())
     let photos: [UIImage] = Helper.allPhotos()
     let titles: [String] = Helper.allTitle()
     
@@ -20,14 +20,13 @@ class StackCardViewcontroller: UIViewController {
         collectionView.frame = CGRectMake(0, 44, self.view.frame.width, self.view.frame.height)
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.dataSource = self
-        collectionView.registerClass(StackCard.self, forCellWithReuseIdentifier: "cell")
+        collectionView.registerClass(FlowCard.self, forCellWithReuseIdentifier: "cell")
         view.addSubview(collectionView)
         view.sendSubviewToBack(collectionView)
         
-        if let layout = collectionView.collectionViewLayout as? StackCardLayout {
+        if let layout = collectionView.collectionViewLayout as? FlowCardLayout {
             layout.cardSize = CGSize(width: self.view.frame.width, height: 250)
             layout.topStackSpace = 50
-            layout.bottomStackSpace = 50
             layout.stackCount = 3
         }
     }
@@ -37,14 +36,15 @@ class StackCardViewcontroller: UIViewController {
     }
 }
 
-extension StackCardViewcontroller: UICollectionViewDataSource {
+extension FlowCardViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! StackCard
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! FlowCard
         cell.photo = photos[indexPath.item]
+        cell.text = titles[indexPath.item]
         return cell
     }
 }

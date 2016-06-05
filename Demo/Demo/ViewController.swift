@@ -11,15 +11,25 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var _tableView: UITableView!
+    let controllers: [UIViewController.Type] = Helper.allController()
     let layouts: [AnyClass] = Helper.allLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
         _tableView.tableFooterView = UIView()
     }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let controllerClass: UIViewController.Type = controllers[indexPath.row]
+        let controller = controllerClass.init()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

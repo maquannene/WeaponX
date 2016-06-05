@@ -1,18 +1,18 @@
 //
-//  CardView.swift
+//  FlowCard.swift
 //  Demo
 //
-//  Created by 马权 on 6/2/16.
+//  Created by 马权 on 6/5/16.
 //  Copyright © 2016 马权. All rights reserved.
 //
 
 import UIKit
 
-class CardView: UICollectionViewCell {
+class FlowCard: UICollectionViewCell {
 
     private var _imageView: UIImageView
     private var _label: UILabel
-
+    
     override init(frame: CGRect) {
         _imageView = UIImageView()
         _label = UILabel()
@@ -56,9 +56,5 @@ class CardView: UICollectionViewCell {
                 _label.text = text as String
             }
         }
-    }
-    
-    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.applyLayoutAttributes(layoutAttributes)
     }
 }

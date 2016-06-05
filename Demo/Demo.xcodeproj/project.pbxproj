@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		D41FEF041CFFDDA3002DC77D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF031CFFDDA3002DC77D /* Helper.swift */; };
 		D41FEF071CFFDED2002DC77D /* StackCardViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF061CFFDED2002DC77D /* StackCardViewcontroller.swift */; };
-		D41FEF091CFFDEF8002DC77D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF081CFFDEF8002DC77D /* CardView.swift */; };
 		D41FEF0C1CFFDF0D002DC77D /* StackCardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41FEF0B1CFFDF0D002DC77D /* StackCardLayout.swift */; };
 		D41FEF351D01A9B3002DC77D /* Inspirations.plist in Resources */ = {isa = PBXBuildFile; fileRef = D41FEF331D01A9B3002DC77D /* Inspirations.plist */; };
 		D41FEF361D01A9B3002DC77D /* Inspirations.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41FEF341D01A9B3002DC77D /* Inspirations.xcassets */; };
+		D45F1A3B1D045AB5001BC4F4 /* FlowCardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F1A3A1D045AB5001BC4F4 /* FlowCardLayout.swift */; };
+		D45F1A3E1D045B64001BC4F4 /* StackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F1A3D1D045B64001BC4F4 /* StackCard.swift */; };
+		D45F1A401D045BB9001BC4F4 /* FlowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F1A3F1D045BB9001BC4F4 /* FlowCardViewController.swift */; };
+		D45F1A421D045BC7001BC4F4 /* FlowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F1A411D045BC7001BC4F4 /* FlowCard.swift */; };
 		D4F537341CF7E758004299F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F537331CF7E758004299F9 /* AppDelegate.swift */; };
 		D4F537361CF7E758004299F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F537351CF7E758004299F9 /* ViewController.swift */; };
 		D4F537391CF7E758004299F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F537371CF7E758004299F9 /* Main.storyboard */; };
@@ -23,10 +26,13 @@
 /* Begin PBXFileReference section */
 		D41FEF031CFFDDA3002DC77D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		D41FEF061CFFDED2002DC77D /* StackCardViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCardViewcontroller.swift; sourceTree = "<group>"; };
-		D41FEF081CFFDEF8002DC77D /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D41FEF0B1CFFDF0D002DC77D /* StackCardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCardLayout.swift; sourceTree = "<group>"; };
 		D41FEF331D01A9B3002DC77D /* Inspirations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Inspirations.plist; sourceTree = "<group>"; };
 		D41FEF341D01A9B3002DC77D /* Inspirations.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Inspirations.xcassets; sourceTree = "<group>"; };
+		D45F1A3A1D045AB5001BC4F4 /* FlowCardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCardLayout.swift; sourceTree = "<group>"; };
+		D45F1A3D1D045B64001BC4F4 /* StackCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCard.swift; sourceTree = "<group>"; };
+		D45F1A3F1D045BB9001BC4F4 /* FlowCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCardViewController.swift; sourceTree = "<group>"; };
+		D45F1A411D045BC7001BC4F4 /* FlowCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCard.swift; sourceTree = "<group>"; };
 		D4F537301CF7E758004299F9 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F537331CF7E758004299F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4F537351CF7E758004299F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				D41FEF061CFFDED2002DC77D /* StackCardViewcontroller.swift */,
-				D41FEF081CFFDEF8002DC77D /* CardView.swift */,
+				D45F1A3D1D045B64001BC4F4 /* StackCard.swift */,
 			);
 			path = StackCard;
 			sourceTree = "<group>";
@@ -62,6 +68,23 @@
 				D41FEF0B1CFFDF0D002DC77D /* StackCardLayout.swift */,
 			);
 			path = StackCard;
+			sourceTree = "<group>";
+		};
+		D45F1A391D045A53001BC4F4 /* FlowCard */ = {
+			isa = PBXGroup;
+			children = (
+				D45F1A3A1D045AB5001BC4F4 /* FlowCardLayout.swift */,
+			);
+			path = FlowCard;
+			sourceTree = "<group>";
+		};
+		D45F1A3C1D045B3F001BC4F4 /* FlowCard */ = {
+			isa = PBXGroup;
+			children = (
+				D45F1A3F1D045BB9001BC4F4 /* FlowCardViewController.swift */,
+				D45F1A411D045BC7001BC4F4 /* FlowCard.swift */,
+			);
+			path = FlowCard;
 			sourceTree = "<group>";
 		};
 		D4F537271CF7E758004299F9 = {
@@ -87,6 +110,7 @@
 				D4F537331CF7E758004299F9 /* AppDelegate.swift */,
 				D4F537351CF7E758004299F9 /* ViewController.swift */,
 				D41FEF031CFFDDA3002DC77D /* Helper.swift */,
+				D45F1A3C1D045B3F001BC4F4 /* FlowCard */,
 				D41FEF051CFFDED2002DC77D /* StackCard */,
 				D4F537371CF7E758004299F9 /* Main.storyboard */,
 				D41FEF331D01A9B3002DC77D /* Inspirations.plist */,
@@ -101,6 +125,7 @@
 		D4F5374A1CF7EB0B004299F9 /* WeaponX */ = {
 			isa = PBXGroup;
 			children = (
+				D45F1A391D045A53001BC4F4 /* FlowCard */,
 				D41FEF0A1CFFDF0D002DC77D /* StackCard */,
 			);
 			name = WeaponX;
@@ -180,12 +205,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D45F1A401D045BB9001BC4F4 /* FlowCardViewController.swift in Sources */,
 				D4F537361CF7E758004299F9 /* ViewController.swift in Sources */,
 				D4F537341CF7E758004299F9 /* AppDelegate.swift in Sources */,
+				D45F1A3E1D045B64001BC4F4 /* StackCard.swift in Sources */,
 				D41FEF0C1CFFDF0D002DC77D /* StackCardLayout.swift in Sources */,
 				D41FEF041CFFDDA3002DC77D /* Helper.swift in Sources */,
 				D41FEF071CFFDED2002DC77D /* StackCardViewcontroller.swift in Sources */,
-				D41FEF091CFFDEF8002DC77D /* CardView.swift in Sources */,
+				D45F1A3B1D045AB5001BC4F4 /* FlowCardLayout.swift in Sources */,
+				D45F1A421D045BC7001BC4F4 /* FlowCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

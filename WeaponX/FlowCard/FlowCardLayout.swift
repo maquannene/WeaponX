@@ -1,18 +1,16 @@
 //
-//  StackCardLayout.swift
+//  FlowCardLayout.swift
 //  Demo
 //
-//  Created by 马权 on 6/2/16.
+//  Created by 马权 on 6/5/16.
 //  Copyright © 2016 马权. All rights reserved.
 //
 
 import UIKit
 
-public class StackCardLayout: UICollectionViewLayout {
+public class FlowCardLayout: UICollectionViewLayout {
     
     public var topStackSpace: CGFloat = 0
-    
-    public var bottomStackSpace: CGFloat = 0
     
     public var cardSize: CGSize = CGSizeZero
     
@@ -28,7 +26,7 @@ public class StackCardLayout: UICollectionViewLayout {
     
     private var contentHeight: CGFloat {
         get {
-            let height = CGFloat(numberOfItems) * cardSize.height - CGFloat(numberOfItems - 1) * bottomStackSpace
+            let height = CGFloat(numberOfItems) * cardSize.height
             if needStackAll {
                 let maxStackCount: Int = numberOfItems > stackCount ? stackCount : numberOfItems - 1
                 return height +
@@ -56,10 +54,10 @@ public class StackCardLayout: UICollectionViewLayout {
         let minY: CGFloat = CGRectGetMinY(rect)
         let maxY: CGFloat = CGRectGetMaxY(rect)
         
-        var minIndex: Int = Int((minY - (cardSize.height - bottomStackSpace) * CGFloat(stackCount) - topStackSpace * CGFloat(stackCount)) / (cardSize.height - bottomStackSpace))
+        var minIndex: Int = Int((minY - cardSize.height * CGFloat(stackCount) - topStackSpace * CGFloat(stackCount)) / cardSize.height)
         minIndex = minIndex < 0 ? 0 : minIndex
         
-        var maxIndex: Int = Int(maxY / (cardSize.height - bottomStackSpace)) + 1
+        var maxIndex: Int = Int(maxY / cardSize.height) + 1
         maxIndex = maxIndex > numberOfItems - 1 ? numberOfItems - 1 : maxIndex
         
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
@@ -75,44 +73,36 @@ public class StackCardLayout: UICollectionViewLayout {
             let index = CGFloat(i)
             
             if offSetY < 0 {
-                y = index * (cardSize.height - bottomStackSpace)
+                y = index * cardSize.height
             }
             else {
-                let height: CGFloat = cardSize.height - bottomStackSpace
+                let height: CGFloat = cardSize.height
                 
                 let stackCount: CGFloat = CGFloat(self.stackCount)
                 
                 let max: CGFloat = index > stackCount ? stackCount : index
-
-                if offSetY <= index * height - max * topStackSpace {
+                
+                let offsetRatio: CGFloat = 1 - (topStackSpace) / cardSize.height
+                
+                if offSetY <= height * index - topStackSpace * max {
                     y = height * index
                 }
+                else if offSetY <= height * stackCount - topStackSpace * stackCount {
+                    y = offSetY + index * topStackSpace
+                }
                 else {
-                    var finish = false
-                    var dascend = stackCount
-                    while dascend >= 0 {
-                        let ascend = stackCount + 1 - dascend
-                        if offSetY <= (index + ascend) * height - (stackCount + 1) * topStackSpace && index >= dascend {
-                            y = offSetY + (stackCount - (ascend - 1)) * topStackSpace
-                            finish = true
-                            break
-                        }
-                        else if offSetY <= (index + ascend) * height - stackCount * topStackSpace && index >= dascend {
-                            y = (index + ascend) * height - ascend * topStackSpace
-                            finish = true
-                            break
-                        }
-                        dascend -= 1
-                    }
-                    if !finish {
-                        if offSetY <= (index + stackCount + 1) * height - stackCount * topStackSpace && index >= 0 {
-                            y = offSetY + (stackCount - stackCount) * topStackSpace
-                        }
-                    }
+                    let offSetYOver: CGFloat = offSetY - (height * index - topStackSpace * stackCount)
+                    y = height * index + offSetYOver * offsetRatio
                 }
             }
             
             attribute.frame = CGRect(origin: CGPoint(x: 0, y: y), size: cardSize)
+            
+            if let lastAttribute = layoutAttributes.last {
+                var rect = lastAttribute.frame
+                rect.size.height = attribute.frame.minY - lastAttribute.frame.minY
+                lastAttribute.frame = rect
+            }
             layoutAttributes.append(attribute)
         }
         return layoutAttributes
