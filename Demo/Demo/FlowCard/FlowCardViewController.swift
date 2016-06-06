@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlowCardViewController: UIViewController {
+class FlowCardViewController: BaseViewController {
     
     let collectionView: UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: FlowCardLayout())
     let photos: [UIImage] = Helper.allPhotos()
@@ -16,8 +16,7 @@ class FlowCardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
-        collectionView.frame = CGRectMake(0, 44, self.view.frame.width, self.view.frame.height)
+        collectionView.frame = view.bounds
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.dataSource = self
         collectionView.registerClass(FlowCard.self, forCellWithReuseIdentifier: "cell")
@@ -28,6 +27,7 @@ class FlowCardViewController: UIViewController {
             layout.cardSize = CGSize(width: self.view.frame.width, height: 250)
             layout.topStackSpace = 50
             layout.stackCount = 3
+            layout.needStackAll = false
         }
     }
     

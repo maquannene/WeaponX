@@ -18,7 +18,7 @@ public class StackCardLayout: UICollectionViewLayout {
     
     public var stackCount: Int = 3
     
-    public var needStackAll: Bool = true
+    public var needStackAll: Bool = false
     
     private var contentWidth: CGFloat {
         get {
@@ -82,9 +82,9 @@ public class StackCardLayout: UICollectionViewLayout {
                 
                 let stackCount: CGFloat = CGFloat(self.stackCount)
                 
-                let max: CGFloat = index > stackCount ? stackCount : index
+                let maxStackCount: CGFloat = index > stackCount ? stackCount : index
 
-                if offSetY <= index * height - max * topStackSpace {
+                if offSetY <= index * height - maxStackCount * topStackSpace {
                     y = height * index
                 }
                 else {

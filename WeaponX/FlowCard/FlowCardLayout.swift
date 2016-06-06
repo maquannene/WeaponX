@@ -16,7 +16,7 @@ public class FlowCardLayout: UICollectionViewLayout {
     
     public var stackCount: Int = 3
     
-    public var needStackAll: Bool = true
+    public var needStackAll: Bool = false
     
     private var contentWidth: CGFloat {
         get {
@@ -80,11 +80,11 @@ public class FlowCardLayout: UICollectionViewLayout {
                 
                 let stackCount: CGFloat = CGFloat(self.stackCount)
                 
-                let max: CGFloat = index > stackCount ? stackCount : index
+                let maxStackCount: CGFloat = index > stackCount ? stackCount : index
                 
                 let offsetRatio: CGFloat = 1 - (topStackSpace) / cardSize.height
                 
-                if offSetY <= height * index - topStackSpace * max {
+                if offSetY <= height * index - topStackSpace * maxStackCount {
                     y = height * index
                 }
                 else if offSetY <= height * stackCount - topStackSpace * stackCount {

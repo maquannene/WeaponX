@@ -16,6 +16,7 @@
 		D45F1A3E1D045B64001BC4F4 /* StackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F1A3D1D045B64001BC4F4 /* StackCard.swift */; };
 		D45F1A401D045BB9001BC4F4 /* FlowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F1A3F1D045BB9001BC4F4 /* FlowCardViewController.swift */; };
 		D45F1A421D045BC7001BC4F4 /* FlowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F1A411D045BC7001BC4F4 /* FlowCard.swift */; };
+		D48F331E1D05605100E6A9AE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48F331D1D05605100E6A9AE /* BaseViewController.swift */; };
 		D4F537341CF7E758004299F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F537331CF7E758004299F9 /* AppDelegate.swift */; };
 		D4F537361CF7E758004299F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F537351CF7E758004299F9 /* ViewController.swift */; };
 		D4F537391CF7E758004299F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F537371CF7E758004299F9 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		D45F1A3D1D045B64001BC4F4 /* StackCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCard.swift; sourceTree = "<group>"; };
 		D45F1A3F1D045BB9001BC4F4 /* FlowCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCardViewController.swift; sourceTree = "<group>"; };
 		D45F1A411D045BC7001BC4F4 /* FlowCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCard.swift; sourceTree = "<group>"; };
+		D48F331D1D05605100E6A9AE /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D4F537301CF7E758004299F9 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F537331CF7E758004299F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4F537351CF7E758004299F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				D4F537331CF7E758004299F9 /* AppDelegate.swift */,
 				D4F537351CF7E758004299F9 /* ViewController.swift */,
+				D48F331D1D05605100E6A9AE /* BaseViewController.swift */,
 				D41FEF031CFFDDA3002DC77D /* Helper.swift */,
 				D45F1A3C1D045B3F001BC4F4 /* FlowCard */,
 				D41FEF051CFFDED2002DC77D /* StackCard */,
@@ -210,6 +213,7 @@
 				D4F537341CF7E758004299F9 /* AppDelegate.swift in Sources */,
 				D45F1A3E1D045B64001BC4F4 /* StackCard.swift in Sources */,
 				D41FEF0C1CFFDF0D002DC77D /* StackCardLayout.swift in Sources */,
+				D48F331E1D05605100E6A9AE /* BaseViewController.swift in Sources */,
 				D41FEF041CFFDDA3002DC77D /* Helper.swift in Sources */,
 				D41FEF071CFFDED2002DC77D /* StackCardViewcontroller.swift in Sources */,
 				D45F1A3B1D045AB5001BC4F4 /* FlowCardLayout.swift in Sources */,

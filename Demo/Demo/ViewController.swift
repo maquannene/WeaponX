@@ -29,7 +29,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let controllerClass: UIViewController.Type = controllers[indexPath.row]
         let controller = controllerClass.init()
-        self.navigationController?.pushViewController(controller, animated: true)
+        presentViewController(controller, animated: true, completion: nil)
     }
 }
 

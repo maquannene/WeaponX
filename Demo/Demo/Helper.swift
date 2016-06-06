@@ -35,13 +35,6 @@ class Helper {
         return titles
     }
     
-    class func allLayout() -> [AnyClass] {
-        var layouts = [AnyClass]()
-        layouts.append(FlowCardLayout)
-        layouts.append(StackCardLayout)
-        return layouts
-    }
-    
     class func allController() -> [UIViewController.Type] {
         var controllers = [UIViewController.Type]()
         controllers.append(FlowCardViewController.self)
@@ -49,4 +42,10 @@ class Helper {
         return controllers
     }
     
+    class func allLayout() -> [AnyClass] {
+        var layouts = [AnyClass]()
+        layouts.append(FlowCardLayout)
+        layouts.append(StackCardLayout)
+        return layouts
+    }
 }

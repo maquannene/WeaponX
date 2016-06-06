@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StackCardViewcontroller: UIViewController {
+class StackCardViewcontroller: BaseViewController {
 
     let collectionView: UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: StackCardLayout())
     let photos: [UIImage] = Helper.allPhotos()
@@ -16,9 +16,8 @@ class StackCardViewcontroller: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
-        collectionView.frame = CGRectMake(0, 44, self.view.frame.width, self.view.frame.height)
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.frame = view.bounds
+        collectionView.backgroundColor = UIColor.blackColor()
         collectionView.dataSource = self
         collectionView.registerClass(StackCard.self, forCellWithReuseIdentifier: "cell")
         view.addSubview(collectionView)
@@ -29,6 +28,7 @@ class StackCardViewcontroller: UIViewController {
             layout.topStackSpace = 50
             layout.bottomStackSpace = 50
             layout.stackCount = 3
+            layout.needStackAll = true
         }
     }
     
