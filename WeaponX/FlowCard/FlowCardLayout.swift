@@ -49,7 +49,6 @@ public class FlowCardLayout: UICollectionViewLayout {
     }
     
     public override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let offSetY = collectionView!.contentOffset.y
         
         let minY: CGFloat = CGRectGetMinY(rect)
         let maxY: CGFloat = CGRectGetMaxY(rect)
@@ -63,49 +62,57 @@ public class FlowCardLayout: UICollectionViewLayout {
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         
         for i in minIndex ... maxIndex {
-            
-            var y: CGFloat = 0
-            
-            let attribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: NSIndexPath(forRow: i, inSection: 0))
-            
-            attribute.zIndex = attribute.indexPath.row
-            
-            let index = CGFloat(i)
-            
-            if offSetY < 0 {
-                y = index * cardSize.height
-            }
-            else {
-                let height: CGFloat = cardSize.height
-                
-                let stackCount: CGFloat = CGFloat(self.stackCount)
-                
-                let maxStackCount: CGFloat = index > stackCount ? stackCount : index
-                
-                let offsetRatio: CGFloat = 1 - (topStackSpace) / cardSize.height
-                
-                if offSetY <= height * index - topStackSpace * maxStackCount {
-                    y = height * index
+            if let attribute = layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: i, inSection: 0)) {
+                if let lastAttribute = layoutAttributes.last {
+                    var rect = lastAttribute.frame
+                    rect.size.height = attribute.frame.minY - lastAttribute.frame.minY
+                    lastAttribute.frame = rect
                 }
-                else if offSetY <= height * stackCount - topStackSpace * stackCount {
-                    y = offSetY + index * topStackSpace
-                }
-                else {
-                    let offSetYOver: CGFloat = offSetY - (height * index - topStackSpace * stackCount)
-                    y = height * index + offSetYOver * offsetRatio
-                }
+                layoutAttributes.append(attribute)
             }
-            
-            attribute.frame = CGRect(origin: CGPoint(x: 0, y: y), size: cardSize)
-            
-            if let lastAttribute = layoutAttributes.last {
-                var rect = lastAttribute.frame
-                rect.size.height = attribute.frame.minY - lastAttribute.frame.minY
-                lastAttribute.frame = rect
-            }
-            layoutAttributes.append(attribute)
         }
         return layoutAttributes
+    }
+    
+    public override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+        
+        let offSetY = collectionView!.contentOffset.y
+        
+        var y: CGFloat = 0
+        
+        let attribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+        
+        attribute.zIndex = attribute.indexPath.row
+        
+        let index = CGFloat(indexPath.item)
+        
+        if offSetY < 0 {
+            y = index * cardSize.height
+        }
+        else {
+            let height: CGFloat = cardSize.height
+            
+            let stackCount: CGFloat = CGFloat(self.stackCount)
+            
+            let maxStackCount: CGFloat = index > stackCount ? stackCount : index
+            
+            let offsetRatio: CGFloat = 1 - (topStackSpace) / cardSize.height
+            
+            if offSetY <= height * index - topStackSpace * maxStackCount {
+                y = height * index
+            }
+            else if offSetY <= height * stackCount - topStackSpace * stackCount {
+                y = offSetY + index * topStackSpace
+            }
+            else {
+                let offSetYOver: CGFloat = offSetY - (height * index - topStackSpace * stackCount)
+                y = height * index + offSetYOver * offsetRatio
+            }
+        }
+        
+        attribute.frame = CGRect(origin: CGPoint(x: 0, y: y), size: cardSize)
+        
+        return attribute
     }
     
     public override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
